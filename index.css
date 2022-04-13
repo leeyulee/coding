@@ -1,0 +1,455 @@
+@charset "utf-8";
+*{margin: 0; padding: 0;}
+ul{list-style: none;}
+a{text-decoration: none;color: #000; font-family: 'Noto Sans KR', sans-serif;}
+.section{overflow: hidden;}
+
+/* font-family: 'Cairo', sans-serif;
+font-family: 'Comfortaa', cursive;
+font-family: 'Do Hyeon', sans-serif;
+font-family: 'Noto Sans KR', sans-serif; */
+
+.nav{
+    position: fixed;/*세로길이 꼭 필요*/
+    z-index: 99;
+    width: 100%;
+    height: 60px;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+}
+.nav ul{
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: space-around;
+}
+.nav ul li.on a{
+    color: orange;
+    font-weight: bold;
+}
+.nav ul li a{
+    color: #fff;
+}
+.home h2{
+    font-size: 5.8vw;
+    position: absolute;
+    left: 50%;top: 45%;
+    transform: translate(-50%, -50%);
+    text-transform: uppercase;
+    color: #f7f7f7;
+    font-style: italic;
+    letter-spacing: -3px;
+    font-family: 'Cairo', sans-serif;
+}
+.home p{
+    font-size: 2.8vw;
+    position: absolute;
+    left: 50%;top: 55%;
+    transform: translate(-50%, -50%);
+    /* text-transform: uppercase; */
+    color: #f7f7f7;
+    font-style: italic;
+    /* letter-spacing: -3px; */
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+    transition: 1s;
+    opacity: 0;
+}
+#particle{
+    width: 100vw;
+    height: 100vh;
+    opacity: 0;
+    transition: 2s;
+}
+.about .left{
+    font-family: 'Do Hyeon', sans-serif;
+    padding: 20vh 12.5%;
+    box-sizing: border-box;
+    float: left;
+    width: 47vw;
+    text-align: center;
+}
+.about .left p{
+    font-size:  1.25vw;
+    color: #f7f7f7;
+    line-height: 1.5;
+    letter-spacing: -0.5px;
+    transition: 1s;
+    opacity: 0;
+}
+.about .left p:nth-of-type(1){
+    font-size: 1.85vw;
+}
+.about .left p span{
+    color: #fdf9c2;
+}
+.about .left img{
+    border-radius: 50%;
+    width: 15.625vw;
+    margin: 3.0959vh 0;
+    transition: 1s;
+    opacity: 0;
+}
+.about .left h2{
+    font-size: 3.125vw;
+    color: #fdf9c2;
+    transition: 1s;
+    opacity: 0;
+}
+.about .right{
+    font-family: 'Do Hyeon', sans-serif;
+    width: 47vw;
+    float: left;
+    padding: 20vh 0 11.8vh 0;
+    text-align: center;
+}
+.about .right h2{
+    font-size: 1.875vw;
+    line-height: 1.5;
+    color: #f7f7f7;
+    transition: 1s;
+    opacity: 0;
+}
+.about .right p{
+    font-size: 1.25vw;
+    line-height: 1.3;
+    color: #f7f7f7;
+    transition: 1s;
+    opacity: 0;
+}
+.about .right p:nth-of-type(1){
+    margin-top: 2vh;   
+}
+.about .right .props-wrap{
+    width: 35vw;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.about .right .props-wrap .prop{
+    float: left;
+    height: 11.6666vw;
+    width: 11.6666vw;
+    margin-top: 3.1vh;
+    transition: 1s;
+    opacity: 0;
+}
+.about .right .props-wrap .prop .icon{
+    width: 80%;
+    height: 80%;
+    background-color: rgba(255,255,255,0.3);
+    position: relative;
+    display: inline-block;
+    border-radius: 50%;
+}
+.about .right .props-wrap .prop .icon img{
+    position: absolute;
+    width: 55.86%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+.about .right .props-wrap .prop p{
+    margin-top: 0.72vh;
+}
+
+.about .sep-line{
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translateX(-50%);
+    height: 0%;
+    border-left: 2px solid #f7f7f7;
+    transition: 1s;
+}
+.skill .fp-tableCell{
+    vertical-align: top;
+}
+.skill h2{
+    text-align: center;
+    margin-top: 8vh;
+    font-size: 2.8vw;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+    opacity: 0;
+    position: relative;
+}
+.skill h2::after{
+    content:"";
+    position: absolute;
+    width: 5%;
+    height: 3px;
+    background-color: #000;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    transition: 0.5s 1.5s;
+}
+.skill h2.on::after{
+    transform: translateX(-50%) scaleX(1);
+}
+.skill .progress-area{
+    position: absolute;
+    top: 25vh;
+    width: 51vw;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.skill .progress-area .progress{
+    float: left;
+    width: 15vw;
+    height: 15vw;
+    margin: 1vw;
+    /* background-color: #f7f7f7; */
+    position: relative;
+    opacity: 0;
+    transition: 0.5s;
+}
+.skill .progress-area .progress p{
+    position: absolute;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+}
+.skill .progress-area .progressbar-text{
+    top: 15% !important;
+    font-size: 1.2vw;
+}
+.work h2{
+    text-align: center;
+    margin-top: 8vh;
+    font-size: 2.8vw;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+    opacity: 0;
+    position: relative;
+}
+.work h2::after{
+    content:"";
+    position: absolute;
+    width: 5%;
+    height: 3px;
+    background-color: #000;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    transition: 0.5s 1.5s;
+}
+.work h2.on::after{
+    transform: translateX(-50%) scaleX(1);
+}
+.work .container{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 70px;
+    /* opacity: 0; */
+}
+.work .container ul li{
+    display: inline-block;
+    padding: 5px 10px;
+    border: 1px solid hotpink;
+    cursor: pointer;
+    transition: 0.5s;
+    opacity: 0;
+}
+.work .container ul li:hover,
+.work .container ul li.on{
+    background-color: hotpink;
+}
+.work .container ul li:hover a,
+.work .container ul li.on a{
+    color: #fff;
+}
+.work .container ul li a{
+    transition: 0.4s;
+    font-size: 14px;
+}
+.work .container .slide{
+    text-align: center;
+    overflow: hidden;
+    margin-top: 20px;
+    opacity: 0;
+    transition: 0.5s;
+}
+.work .container .slide .item{
+    float: left;
+    width: 23%;
+    margin: 5px;
+    cursor: pointer;
+}
+.work .container .slide .item img{
+    border-radius: 30px;
+    width: 100%;
+    height: 300px;
+}
+.work .fp-tableCell{vertical-align: top;}
+.work .fp-slidesNav{text-align: center; transition: 1s; opacity: 0;}/*<- 꼭 넣어야한다!!*/
+.work .fp-controlArrow.fp-next{right: 100px; transition: 1s; opacity: 0;}
+.work .fp-controlArrow.fp-prev{left: 100px; transition: 1s; opacity: 0;}
+
+
+.contact h2{
+    text-align: center;
+    margin-top: 8vh;
+    font-size: 2.8vw;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+    opacity: 0;
+    position: relative;
+}
+.contact h2::after{
+    content:"";
+    position: absolute;
+    width: 5%;
+    height: 3px;
+    background-color: #000;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    transition: 0.5s 1.5s;
+}
+.contact h2.on::after{
+    transform: translateX(-50%) scaleX(1);
+}
+.contact .fp-tableCell{vertical-align: top;}
+.contact .content{
+    max-width: 1500px;
+    margin: 0 auto;
+    height: 600px;
+    margin-top: 150px;
+    background-color: rgba(26,26,26,0.35);
+    border-radius: 10px;
+    transition: 0.5s, 2.5s;
+    opacity: 0;
+}
+.contact .content > div{
+    font-family: 'Noto Sans KR', sans-serif;
+    float: left;
+    margin-top: 250px;
+}
+.contact .content .left{width: 30%;opacity: 0;}
+.contact .content .center{width: 34%; opacity: 0;}
+.contact .content .right{width: 30%; height: 160px; text-align: center; opacity: 0;}
+.contact .content p{line-height: 50px; text-align: center; color: #fff; font-size: 18px;}
+
+@media screen and (max-width : 640px) {
+    .home p{
+        font-size: 5vw;
+        width: 100%;
+        text-align: center;
+    }
+    .home h2{
+        font-size: 10.5vw;
+    }
+    .nav ul li a{font-size: 13px;}
+    .about .left p,
+    .about .right p,
+    .about .lft p:nth-of-type(1){
+        font-size: 4vw;
+    }
+    .about .left{
+        width: 100%;
+        padding-top: 10vh;
+        padding-bottom: 5vw;
+    }
+    .about .right{
+        width: 100%;
+        padding-top: 0;
+
+    }
+    .about .left h2,
+    .about .right h2{font-size: 4.5vw;}
+    .about .right .props-wrap{
+        width: 70vw;
+    }
+
+    .about .right .props-wrap .prop{
+        width: 23vw;
+        height: 23vw;
+        margin-top: 6.1vw;
+    }
+    .about .right .props-wrap .prop p{
+        font-size: 3.5vw;
+        margin-top: 0;
+    }
+    .sep-line{display: none;}
+
+    .skill h2::after,
+    .work h1::after,
+    .contact h2::after{
+        bottom: 10px;
+    }
+    .skill h2,
+    .work h2,
+    .contact h2{
+        font-size: 8vw;
+        margin-top: 10vw;
+    }
+    .skill .progress-area{
+        width: 100%;
+        top: 20vh;
+    }
+    .skill .progress-area .progress{
+        width: 45vw;
+        height: 40vw;
+    }
+    .skill .progress-area .progress p{
+        font-size: 4.5vw;
+    }
+    .skill .progress-area .progress:nth-child(odd){
+        margin-right: 5vw;
+    }
+    .skill .progress-area .progressbar-text{
+        font-size: 6vw;
+    }
+    .work .container ul{margin-top: 10vw;}
+    .work .container ul li{
+        display: block;
+        margin-bottom: 1vw;
+        text-align: center;
+        padding: 0;
+        line-height: 33px;
+    }
+    .work .container{margin-top: 40px;}
+    .work .container ul a{
+        font: 2vw;
+        display: inline-block;
+        width: 100%;
+    }
+    .work .container  .slide .item{
+        width: 30%;
+    }
+    .work .container  .slide .item img{height: auto;}
+    .work .fp-controlArrow.fp-next{
+        right: 10px; 
+        top: 66%; 
+        border-width: 18.5px 0 18.5px 14px;
+    }
+    .work .fp-controlArrow.fp-prev{
+        left: 10px;
+        top: 66%;
+        border-width: 18.5px 14px 18.5px 0;
+    }
+
+    .contact .content{
+        min-width: 640px;
+        width: 100%;
+        height: 510px;
+        overflow: hidden;
+    }
+    .contact .fp-tableCell{padding: 0 2px;}
+    .contact .content .left,
+    .contact .content .center,
+    .contact .content .right{
+        margin-top: 10px;
+        width: 100%;
+    }
+
+    .contact .content .left{margin-top: 40px;}
+}
